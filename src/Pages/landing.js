@@ -3,13 +3,31 @@ import Card from "../Components/card.js";
 import title from "../Assets/title.png";
 import dab from "../Assets/dab.png";
 import useCharacterSearch from "../utils/useCharacterSearch.js";
+import { useState , useRef, useCallback } from 'react';
 
 
 const Landing = () => {
 
-    const { loading , error , characters , next } = useCharacterSearch();
+    const [query, setQuery] = useState('');
+    const [pageNumber, setPageNumber] = useState(1);
+    const {loading , error , characters , next} = useCharacterSearch(query, pageNumber);
+ 
+    const observer = useRef()
+  
+    const lastCharacterRef = useCallback(node => {
+      if (loading) return
+      if (observer.current) observer.current.disconnect()
+      observer.current = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && next) {
+          setPageNumber(prev => prev + 1)
+        }
+      })
+      if (node) observer.current.observe(node)
+    },[loading, next])
 
-    // console.log(loading , error , characters , next)
+
+    
+
     return(
         <>
             {/* title bar */}
@@ -21,13 +39,19 @@ const Landing = () => {
             </div>
             <div className="grid grid-cols-2 gap-10 gap-x-0 mx-24">
                 {/* cards here */}
-                {
-                    characters.map(character => {
-                            console.log(character)
-                            return <Card/>
-                        }
-                    )
-                }
+                {characters.map((character, index) => {
+                    if(characters.length === index+1)
+                        return (
+                        <div ref={lastCharacterRef} key={character.id}>
+                            <Card character={character}/>
+                        </div>
+                        )
+                    else
+                        return <Card key={character.id} character={character}/>
+                    }
+                )}
+                {loading && <div>Loading...</div>}
+                {error && <div>Error</div>}
             </div>
         </>
     )
