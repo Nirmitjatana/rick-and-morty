@@ -1,10 +1,13 @@
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <div className='w-full text-center'>
+        <h1 className='text-white text-6xl custom-font text-center'>Rick and Morty</h1>
+        <input type="text" placeholder="Search field" className='text-center my-10'/>
+      </div>
+    </>
   );
 }
 

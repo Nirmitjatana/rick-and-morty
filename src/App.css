@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Creepster&family=Gloria+Hallelujah&family=Pangolin&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html{
+    /* font-family: 'Bangers', cursive; */
+    /* font-family: 'Creepster', cursive; */
+    /* font-family: 'Gloria Hallelujah', cursive; */
+    font-family: 'Pangolin', cursive;
+    /* font-family: 'Poppins', sans-serif; */
+    background-color: #161616;
+    height: 150vh;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+  }
+::-webkit-scrollbar-thumb {
+    background: #79BB46;
+}
+.custom-font{
+    font-family: 'Creepster', cursive;
+}
