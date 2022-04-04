@@ -2,8 +2,14 @@ import React from "react";
 import Card from "../Components/card.js";
 import title from "../Assets/title.png";
 import dab from "../Assets/dab.png";
+import useCharacterSearch from "../utils/useCharacterSearch.js";
+
 
 const Landing = () => {
+
+    const { loading , error , characters , next } = useCharacterSearch();
+
+    // console.log(loading , error , characters , next)
     return(
         <>
             {/* title bar */}
@@ -15,10 +21,13 @@ const Landing = () => {
             </div>
             <div className="grid grid-cols-2 gap-10 gap-x-0 mx-24">
                 {/* cards here */}
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                {
+                    characters.map(character => {
+                            console.log(character)
+                            return <Card/>
+                        }
+                    )
+                }
             </div>
         </>
     )
