@@ -21,6 +21,9 @@ html{
 ::-webkit-scrollbar-thumb {
     background: #79BB46;
 }
-.custom-font{
-    font-family: 'Creepster', cursive;
+.pangolin{
+    font-family: 'Pangolin', cursive;
+}
+.bangers{
+    font-family: 'Bangers', cursive;
 }
