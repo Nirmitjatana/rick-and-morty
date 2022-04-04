@@ -3,7 +3,7 @@ import img from "../Assets/1.jpeg";
 
 const Card = () => {
     return(
-        <div className="h-[300px] w-[600px] bg-[#49494950] flex flex-row">
+        <div className="h-[300px] w-[600px] bg-[#49494950] flex flex-row z-20">
             {/* character icon */}
             <img src={img} alt="icon"/>
             {/* text */}
