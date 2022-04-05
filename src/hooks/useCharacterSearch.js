@@ -5,13 +5,13 @@ export default function useCharacterSearch( id ) {
 
     // setting states for: characters, loading, next, error
     const [loading , SetLoading] = useState(true)
-    const [error , SetError] = useState(false)
+    const [error , SetError] = useState(200)
     const [character , SetCharacter] = useState([])
 
     // fetching data
     useEffect(() => {
         // console.log("nj")
-        SetError(false);
+        SetError(200);
         axios({
             method: 'GET',
             url: 'https://rickandmortyapi.com/api/character/' + id,
@@ -33,8 +33,9 @@ export default function useCharacterSearch( id ) {
             //     //need to output proper message
             //     SetLoading(false)
             //     return
+            SetError(err.response.status)
             // }
-            SetError(true)
+            
         })
         // cancel request on unmount
     },[id])
