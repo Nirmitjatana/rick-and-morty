@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Components/card.js";
 import title from "../Assets/title.png";
 import dab from "../Assets/dab.png";
-import useCharacterSearch from "../utils/useCharacterSearch.js";
+import useListSearch from "../hooks/useListSearch.js";
 import { useState , useRef, useCallback } from 'react';
 
 
@@ -10,8 +10,7 @@ const Landing = () => {
 
     const [query, setQuery] = useState('');
     const [pageNumber, setPageNumber] = useState(1);
-    const {loading , error , characters , next} = useCharacterSearch(query, pageNumber);
- 
+    const {loading , error , characters , next} = useListSearch(query, pageNumber);
     const observer = useRef()
   
     const lastCharacterRef = useCallback(node => {
