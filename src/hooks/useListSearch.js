@@ -36,17 +36,9 @@ export default function useCharacterSearch( query , pageNumber ) {
             SetLoading(false)
         })
         .catch(err => {
-            // ignoring cancel error
             if(axios.isCancel(err)) return
-            // if(err.response.status === 404){
-            //     // loading remove
-            //     //need to output proper message
-            //     SetLoading(false)
-            //     return
-            // }
             SetError(err.response.status)
         })
-        // cancel request on unmount
         return () => cancel()
     },[query, pageNumber])
     return {loading , error , characters , next}

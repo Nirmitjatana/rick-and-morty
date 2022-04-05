@@ -5,11 +5,7 @@
 @tailwind utilities;
 
 html{
-    /* font-family: 'Bangers', cursive; */
-    /* font-family: 'Creepster', cursive; */
     font-family: 'Gloria Hallelujah', cursive;
-    /* font-family: 'Pangolin', cursive; */
-    /* font-family: 'Poppins', sans-serif; */
     background-color: #161616;
 }
 ::-webkit-scrollbar {

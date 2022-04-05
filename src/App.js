@@ -5,8 +5,11 @@ import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
 import Loading from "./Pages/loading";
 import { UserContext } from './utils/UserContext';
 import { useState } from 'react';
+
 const App = () => {
+  
   const [ load, SetLoad ] = useState(true);
+  
   return (
     <Router>
       <UserContext.Provider value={{load,SetLoad}}>

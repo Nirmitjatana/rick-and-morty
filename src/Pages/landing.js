@@ -9,7 +9,6 @@ import { UserContext } from "../utils/UserContext";
 import { useNavigate } from "react-router-dom";
 
 
-
 const Landing = () => {
 
     const { load } = useContext(UserContext);
@@ -39,9 +38,6 @@ const Landing = () => {
         setQuery(e.target.value);
         setPageNumber(1);
     }
-    // useEffect(() => {
-    //     SetLoad(false)
-    // })
     return(
         <>
             {/* title bar */}
