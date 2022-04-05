@@ -13,22 +13,22 @@ const Card = (character) => {
         // console.log(value)
     }
     return(
-        <div className="h-[300px] w-[600px] bg-[#49494950] flex flex-row z-20 cursor-pointer" onClick={() => handleClick()}>
+        <div className="h-[200px] w-[100%] lg:h-[300px] lg:w-[600px] bg-[#49494950] flex flex-row z-20 cursor-pointer" onClick={() => handleClick()}>
             <img src={image} alt="icon"/>
-            <div className="text-white mx-12 my-8 text-xl">
+            <div className="text-white mx-8 lg:mx-12 mt-4 lg:my-8 text-xl">
                 {
                     name.length > 13 ? 
-                    <h1 className="bangers text-2xl absolute w-[200px] text-center">{name}</h1>
+                    <h1 className="bangers text-sm lg:text-2xl absolute text-center">{name}</h1>
                     :
-                    <h1 className="bangers text-4xl absolute w-[200px] text-center">{name}</h1>
+                    <h1 className="bangers text-sm lg:text-4xl absolute text-center">{name}</h1>
                 }
                 {/* <h1 className="bangers text-2xl absolute w-[200px] text-center">{name}</h1><br/> */}
                 {/* information */}
-                <div className="mt-16 text-2xl">
+                <div className="mt-8 lg:mt-16 text-xs lg:text-2xl">
                     <p className="pt-4"><span className="pangolin">Gender:</span> {gender}</p>
                     {
                         species.length > 12 ? 
-                        <p className="pt-4 text-[19px]"><span className="pangolin">Species:</span> {species}</p>
+                        <p className="pt-4 lg:text-[19px]"><span className="pangolin">Species:</span> {species}</p>
                         :
                         <p className="pt-4"><span className="pangolin">Species:</span> {species}</p>
                     }

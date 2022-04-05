@@ -3,7 +3,6 @@ import banner from "../Assets/banner.png"
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import useCharacterSearch from "../hooks/useCharacterSearch.js";
-import { useEffect } from "react";
 
 const Character = () => {
     let { id } = useParams();
