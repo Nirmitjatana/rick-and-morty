@@ -1,11 +1,19 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+// import { useContext } from "react";
+// import { UserContext } from "../utils/UserContext";
 
 const Card = (character) => {
-
-    const { name, image, species, status ,id, gender } = character.character
-    console.log(id)
+    let navigate = useNavigate();
+    // const { value, SetValue } = useContext(UserContext);
+    const { name, image, species, status , id, gender } = character.character
+    function handleClick(){
+        navigate(`/character/${id}`)
+        // SetValue(character)
+        // console.log(value)
+    }
     return(
-        <div className="h-[300px] w-[600px] bg-[#49494950] flex flex-row z-20 cursor-pointer">
+        <div className="h-[300px] w-[600px] bg-[#49494950] flex flex-row z-20 cursor-pointer" onClick={() => handleClick()}>
             <img src={image} alt="icon"/>
             <div className="text-white mx-12 my-8 text-xl">
                 {
