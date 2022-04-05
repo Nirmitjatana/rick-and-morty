@@ -6,14 +6,13 @@ import useListSearch from "../hooks/useListSearch.js";
 import { useState , useRef, useCallback } from 'react';
 import { useContext } from "react";
 import { UserContext } from "../utils/UserContext";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 
 const Landing = () => {
 
-    const { load, SetLoad } = useContext(UserContext);
+    const { load } = useContext(UserContext);
     const navigate = useNavigate();
     const [query, setQuery] = useState('');
     const [pageNumber, setPageNumber] = useState(1);
