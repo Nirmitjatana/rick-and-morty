@@ -15,7 +15,7 @@ const Landing = () => {
             if(!load){
                 navigate("/")
             }
-        },1000
+        },1500
     )})    
     SetLoad(false)
     return (
