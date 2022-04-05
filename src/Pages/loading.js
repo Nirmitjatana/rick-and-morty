@@ -28,7 +28,7 @@ const Landing = () => {
     return (
         // <div className="text-white">load</div>
         <div>
-            <img src={loading} alt="loading" className="w-[50%] mx-auto"/>
+            <img src={loading} alt="loading" className="w-[50%] mx-auto lg:mt-0 mt-[50%]"/>
         </div>
     )
 }
