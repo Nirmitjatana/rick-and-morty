@@ -5,7 +5,7 @@ export default function useCharacterSearch( query , pageNumber ) {
 
     // setting states for: characters, loading, next, error
     const [loading , SetLoading] = useState(true)
-    const [error , SetError] = useState(false)
+    const [error , SetError] = useState(200)
     const [characters , SetCharacters] = useState([])
     const [next , SetNext] = useState(false)
 
@@ -16,7 +16,7 @@ export default function useCharacterSearch( query , pageNumber ) {
 
     // fetching data
     useEffect(() => {
-        SetError(false);
+        SetError(200);
         let cancel
         axios({
             method: 'GET',
@@ -38,13 +38,13 @@ export default function useCharacterSearch( query , pageNumber ) {
         .catch(err => {
             // ignoring cancel error
             if(axios.isCancel(err)) return
-            if(err.response.status === 404){
-                // loading remove
-                //need to output proper message
-                SetLoading(false)
-                return
-            }
-            SetError(true)
+            // if(err.response.status === 404){
+            //     // loading remove
+            //     //need to output proper message
+            //     SetLoading(false)
+            //     return
+            // }
+            SetError(err.response.status)
         })
         // cancel request on unmount
         return () => cancel()

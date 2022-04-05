@@ -5,7 +5,6 @@ import dab from "../Assets/dab.png";
 import useListSearch from "../hooks/useListSearch.js";
 import { useState , useRef, useCallback } from 'react';
 
-
 const Landing = () => {
 
     const [query, setQuery] = useState('');
@@ -40,7 +39,6 @@ const Landing = () => {
                 <img src={dab} alt="dab" className="fixed bottom-0 right-4 w-44"/>
             </div>
             <div className="grid grid-cols-2 gap-10 gap-x-0 mx-24">
-                {/* cards here */}
                 {characters.map((character, index) => {
                     if(characters.length === index+1)
                         return (
@@ -52,9 +50,18 @@ const Landing = () => {
                         return <Card key={character.id} character={character}/>
                     }
                 )}
-                {loading && <div>Loading...</div>}
-                {error && <div>Error</div>}
+                
             </div>
+
+            {/* error handling */}
+            
+            {loading && <div className="text-white text-center text-4xl my-10">Lemme load first!</div>}
+            {error === 404 ?  
+            <div className="text-center text-4xl my-10 text-[#79BB46]">What are you searching for! GOD??</div> 
+            : error !== 200  ? 
+            <div className="text-white text-center text-4xl my-10">Well that was unexpected!</div> 
+            : 
+            <div></div>}
             <br />
             <br />
         </>
